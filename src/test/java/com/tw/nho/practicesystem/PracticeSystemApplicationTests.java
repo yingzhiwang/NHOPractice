@@ -32,9 +32,7 @@ public class PracticeSystemApplicationTests {
 
     @Test
     public void saveTest()  {
-        User user = new User();
-        user.setName("a");
-        user.setUrl("abc");
+        User user = User.builder().name("abc").password("abc").build();
         User result = userRepository.save(user);
         log.info(result.toString());
         Assert.assertNotNull(user.getId());

@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TrainingCampController {
 
-    @GetMapping("/training-camps")
+    @GetMapping("/training_camps")
     public TrainingCamp getTrainingCamps() {
 
-        return null;
+        TrainingCamp trainingCamp = TrainingCamp.builder().age(12).id(1L).name("abc").build();
+        return trainingCamp;
     }
 
 }

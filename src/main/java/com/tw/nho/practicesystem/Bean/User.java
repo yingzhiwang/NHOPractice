@@ -1,5 +1,6 @@
 package com.tw.nho.practicesystem.Bean;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_user")
 @Data
+@Builder
 public class User {
 
     @Id
@@ -15,14 +17,14 @@ public class User {
 
     private String name;
 
-    private String url;
+    private String password;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
