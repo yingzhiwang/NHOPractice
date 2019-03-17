@@ -1,6 +1,29 @@
-drop table t_train if exists;
-CREATE TABLE t_train(
-id char(20) not null primary key,
-name char(20),
-age INTEGER
+create table If not exists trainingCamp(
+  id INT UNSIGNED AUTO_INCREMENT,
+  trainingCampName varchar(50),
+  trainingCampDescription varchar(500),
+  trainingCampCreateTime datetime,
+  trainingCampLastModifyTime datetime,
+  trainingCampFlag int,
+  PRIMARY KEY (id)
+);
+
+create table If not exists taskCard(
+  id INT UNSIGNED AUTO_INCREMENT,
+  taskCardName varchar(50),
+  taskCardDescription varchar(500),
+  taskCardCreateTime datetime,
+  taskCardLastModifyTime datetime,
+  taskCardFlag int,
+  PRIMARY KEY (id)
+);
+
+create table If not exists campCardRelation(
+  id INT UNSIGNED AUTO_INCREMENT,
+  trainingCampId int,
+  taskCardId int,
+  tCampCardRelationCreateTime datetime,
+  campCardRelationLastModifyTime datetime,
+  cmpCardRelationFlag int,
+  PRIMARY KEY (id)
 );

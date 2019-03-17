@@ -4,9 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "t_train")
+@Table(name = "trainingCamp")
 @Data
 @Builder
 public class TrainingCamp {
@@ -14,8 +15,14 @@ public class TrainingCamp {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String trainingCampName;
 
-    private Integer age;
+    private Integer trainingCampDescription;
+
+    private LocalDateTime trainingCampCreateTime;
+
+    private LocalDateTime trainingCampLastModifyTime;
+
+    private Integer trainingCampFlag;
 
 }

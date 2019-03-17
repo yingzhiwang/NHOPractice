@@ -18,13 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Optional;
-import java.util.UUID;
-
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 
 
 @Slf4j
@@ -49,48 +43,17 @@ public class TrainingCampControllerTest {
 
     @Test
     public void should_succ_when_search() throws Exception {
-        String res = mvc.perform(MockMvcRequestBuilders.get("/training_camps")
+         mvc.perform(MockMvcRequestBuilders.get("/training_camps")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .session(session))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andReturn().getResponse().getContentAsString();
-
-        System.out.println(res);
-
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
 
 
     @Test
-    public void should_succ_when_save() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/training_camp")
-                .content("{\"id\":1,\"name\":\"abc\",\"age\":12}")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
-                .session(session))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+    public void should_succ_when_save() {
 
     }
-
-    @Test
-    public void should_succ_when_update() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/training_camp/1")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
-                .session(session))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-
-    }
-
-    @Test
-    public void should_succ_when_delete() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.delete("/training_camp/1")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
-                .session(session))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-
-    }
-
 }
